@@ -11,6 +11,6 @@
     <title>Casa do Codigo - Home</title>
 </head>
 <body>
-    <h1>Home...</h1>
+    <h1>Pagina Inicial da Casa do Codigo</h1>
 </body>
 </html>

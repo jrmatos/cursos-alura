@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by paulo on 22/09/17.
@@ -19,5 +20,10 @@ public class ProdutoDAO {
 
     public void gravar(Produto produto) {
         manager.persist(produto);
+    }
+
+    public List<Produto> listar() {
+        return manager.createQuery("SELECT p FROM Produto p", Produto.class)
+                    .getResultList();
     }
 }
