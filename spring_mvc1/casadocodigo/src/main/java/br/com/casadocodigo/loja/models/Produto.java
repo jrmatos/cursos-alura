@@ -1,8 +1,10 @@
 package br.com.casadocodigo.loja.models;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -17,6 +19,8 @@ public class Produto {
     private String titulo;
     private String descricao;
     private Integer paginas;
+    @DateTimeFormat
+    private Calendar dataLancamento;
     @ElementCollection
     List<Preco> precos;
 }
