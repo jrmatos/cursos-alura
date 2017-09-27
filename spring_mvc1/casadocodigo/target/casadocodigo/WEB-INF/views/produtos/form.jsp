@@ -14,7 +14,7 @@
     <title>Casa do Codigo - Form</title>
 </head>
 <body>
-    <form:form action="${s:mvcUrl('PC#gravar').build()}" method="POST" commandName="produto">
+    <form:form action="${s:mvcUrl('PC#gravar').build()}" method="POST" commandName="produto" enctype="multipart/form-data">
         <div>
             <label>Titulo</label>
             <form:input path="titulo"/>
@@ -42,6 +42,11 @@
                 <form:hidden path="precos[${status.index}].tipo" value="${tipoPreco}"/>
             </div>
         </c:forEach>
+        <div>
+            <label for="sumario">
+                <input type="file" id="sumario" name="sumario">
+            </label>
+        </div>
         <button type="submit">Cadastrar</button>
     </form:form>
 </body>

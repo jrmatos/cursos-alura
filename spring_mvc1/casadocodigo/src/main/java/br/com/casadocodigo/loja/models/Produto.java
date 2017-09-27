@@ -23,4 +23,5 @@ public class Produto {
     private Calendar dataLancamento;
     @ElementCollection
     List<Preco> precos;
+    private String sumarioPath;
 }
