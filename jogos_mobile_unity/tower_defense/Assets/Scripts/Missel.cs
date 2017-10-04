@@ -6,18 +6,22 @@ public class Missel : MonoBehaviour
 {
 	[Range(0,5)]
 	public float velocidade;
-	private GameObject alvo;
+	private Inimigo alvo;
+	[SerializeField] private int pontosDeDano;
 
 	void Start()
 	{
-		alvo = GameObject.Find("Inimigo");
+		AutoDestroiDepoisDeSegundos(5);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		Anda();
-		AlteraDirecao();
+		if (alvo != null)
+		{
+			AlteraDirecao();
+		}
 	}
 	
 	private void AlteraDirecao()
@@ -36,5 +40,25 @@ public class Missel : MonoBehaviour
 		Vector3 posicaoAtual = transform.position;
 		Vector3 deslocamento = transform.forward * Time.deltaTime * velocidade;
 		transform.position = posicaoAtual + deslocamento;
+	}
+
+	private void OnTriggerEnter(Collider elementoColidido)
+	{
+		if (elementoColidido.CompareTag("Inimigo"))
+		{
+			Destroy(this.gameObject);
+			Inimigo inimigo = elementoColidido.GetComponent<Inimigo>();
+			inimigo.RecebeDano(pontosDeDano);
+		}
+	}
+
+	private void AutoDestroiDepoisDeSegundos(float segundos)
+	{
+		Destroy(this.gameObject, segundos);
+	}
+
+	public void DefineAlvo(Inimigo inimigo)
+	{
+		alvo = inimigo;
 	}
 }

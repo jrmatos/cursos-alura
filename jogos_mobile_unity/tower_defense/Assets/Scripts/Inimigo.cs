@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Inimigo : MonoBehaviour {
+public class Inimigo : MonoBehaviour
+{
+
+	[SerializeField] private int vida;
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +16,12 @@ public class Inimigo : MonoBehaviour {
 		agente.SetDestination(posicaoDoFimDoCaminho);
 	}
 
+	public void RecebeDano(int pontosDeDano)
+	{
+		vida -= pontosDeDano;
+		if (vida <= 0)
+		{
+			Destroy(this.gameObject);
+		}
+	}
 }

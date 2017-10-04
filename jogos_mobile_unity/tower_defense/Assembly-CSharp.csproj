@@ -51,7 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\GeradorDeInimigos.cs" />
      <Compile Include="Assets\Scripts\Inimigo.cs" />
+     <Compile Include="Assets\Scripts\Jogo.cs" />
      <Compile Include="Assets\Scripts\Missel.cs" />
      <Compile Include="Assets\Scripts\Torre.cs" />
  <Reference Include="UnityEngine.UI">
